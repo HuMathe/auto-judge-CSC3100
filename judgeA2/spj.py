@@ -118,6 +118,8 @@ def saveInput():
 	return 
 
 compile()
+changeData(3):
+test(20)
 changeData(20)
 test(case_num)
 changeData(100)
