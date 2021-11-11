@@ -1,6 +1,6 @@
 # CSC3100_A2 自动评测
 
-主要使用随机生成的数据测试哈夫曼编码解码的正确性，将名为*`HuffmanCompression.java`*的编码程序和名为*`HuffmanDecompression.java`*的解码程序放在`/source`的文件夹中，调用*`spj.py`*即可自动评测
+主要使用随机生成的数据测试哈夫曼编码解码的正确性，将名为 *`HuffmanCompression.java`* 的编码程序和名为 *`HuffmanDecompression.java`* 的解码程序放在`/source`的文件夹中，调用 *`spj.py`* 即可自动评测
 主要检测编码长度是否最短，编码是否合法，以及解码程序是否能解开编码，同时记录运行时间。
 运行过程中代码占用内存不能超过128MB
 
