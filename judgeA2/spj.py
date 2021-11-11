@@ -7,9 +7,15 @@ import platform
 is_win = ('windows' in platform.system().lower()) 
 case_num = 100
 stop_watch = True
+over_limit = False
+save_failure_data = True
 
 if '--no_time_record' in sys.argv:
 	stop_watch = False
+if '--over_limit' in sys.argv:
+	over_limit = True
+if '--no_save' in sys.argv:
+	save_failure_data = False
 if '-s' in sys.argv:
 	case_num = int(sys.argv[sys.argv.index('-s') + 1])
 runtime_result = ''
@@ -109,6 +115,8 @@ def test(test_case):
 			exit()
 
 def saveInput():
+	if not save_failure_data:
+		return 
 	with open("input.u", 'r') as fin:
 		content = fin.read()
 	save_path = os.path.join("source", "bugdata.txt")
@@ -127,10 +135,11 @@ test(case_num)
 print('testing on limit data...')
 changeData(1024*100)
 test(5)
-changeData(1024*200)
-test(2)
-changeData(1000*500)
-test(1)
+if(over_limit):
+	changeData(1024*200)
+	test(2)
+	changeData(1000*500)
+	test(1)
 print('testing on critical data...')
 for root, _, files in os.walk("critical_data"):
 	for file in files:
